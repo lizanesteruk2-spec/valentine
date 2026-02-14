@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Валентинка</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffe6e6;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .valentine {
+    text-align: center;
+    background: #fff0f5;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255,0,100,0.3);
+  }
+
+  h1 {
+    color: #ff3366;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6699;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  .message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #cc0066;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="valentine">
+  <h1>💖 С Днём Святого Валентина! 💖</h1>
+  <button onclick="showMessage()">Нажми меня!</button>
+  <div class="message" id="message">Ты делаешь мой день ярче! 😘</div>
+</div>
+
+<script>
+function showMessage() {
+  const msg = document.getElementById('message');
+  msg.style.display = 'block';
+}
+</script>
+</body>
+</html>

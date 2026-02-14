@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Письмо 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Quicksand', sans-serif;
+    background:linear-gradient(135deg,#ffd6e8,#ffc2dc,#ffe6f2);
+    text-align:center;
+    overflow:hidden;
+}
+
+.screen{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:0.5s ease;
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+h1{
+    color:#ff2e7a;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+button{
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    font-size:18px;
+    cursor:pointer;
+    margin:12px;
+    transition:0.3s;
+    font-family:'Quicksand', sans-serif;
+}
+
+.open-btn{
+    background:#ff5fa2;
+    color:white;
+}
+
+.open-btn:hover{
+    transform:scale(1.08);
+}
+
+.yes-btn{
+    background:#ff7ab8;
+    color:white;
+}
+
+.yes-btn:hover{
+    transform:scale(1.08);
+}
+
+.no-btn{
+    background:black;
+    color:white;
+    box-shadow:0 0 15px rgba(255,0,0,0.5);
+}
+
+.no-btn:hover{
+    transform:scale(1.05);
+}
+
+.gif{
+    width:260px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4f93;
+    animation:float 6s linear forwards;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Экран 1 -->
+<div class="screen" id="screen1">
+    <h1>У меня к тебе письмо 💌</h1>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajlzOHUwczc1NDVxYjN3dHowd2NhZWFpZm4wZ2swMzhtZmpvMGQ5dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/uR3U2Eae7ZpTJuC7z3/giphy.gif" class="gif">
+    <button class="open-btn" onclick="openQuestion()">ОТКРЫТЬ</button>
+</div>
+
+<!-- Экран 2 -->
+<div class="screen hidden" id="screen2">
+    <h1>Хочешь открыть?</h1>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXYzOGt1MTZmcGE0NmJ5MGJkaXJmcDR1YnEydGhtNTZqc3BuZGk0MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wr7oA0rSjnWuiLJOY5/giphy.gif" class="gif">
+    <div>
+        <button class="yes-btn" onclick="showLove()">ДА</button>
+        <button class="no-btn" onclick="beg()">НЕТ</button>
+    </div>
+</div>
+
+<!-- Экран 3 -->
+<div class="screen hidden" id="screen3">
+    <h1>УРАА 💖<br>С ДНЁМ СВЯТОГО ВАЛЕНТИНА!!!</h1>
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlqNDM3MTVsOW1jOTExc3MybXVwbGdxbGQ5enUxOHZleHRuMGxmdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WGDVwKyJeHiJsVxHlb/giphy.gif" class="gif">
+</div>
+
+<script>
+
+function openQuestion(){
+    document.getElementById("screen1").classList.add("hidden");
+    document.getElementById("screen2").classList.remove("hidden");
+}
+
+function beg(){
+    alert("ну пожалуйста((( 💔");
+}
+
+function showLove(){
+    document.getElementById("screen2").classList.add("hidden");
+    document.getElementById("screen3").classList.remove("hidden");
+    createHearts();
+}
+
+function createHearts(){
+    setInterval(()=>{
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(20+Math.random()*25)+"px";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),6000);
+    },300);
+}
+
+</script>
+
+</body>
+</html>
